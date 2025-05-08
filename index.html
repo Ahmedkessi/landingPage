@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ikaay Center</title>
+  <style>
+    *{
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      height: 100%;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+
+    .container {
+      background: linear-gradient(to bottom, rgba(51, 255, 0, 0.61), rgba(0, 0, 255, 0.274), rgba(0, 255, 0, 0.274));
+      max-width: 1500px;
+      overflow: hidden;
+      margin: 0 auto;
+      padding: 0px 40px;
+      position: relative;
+      max-width: 1500px;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      gap: 30px;
+    }
+
+    header nav ul li {
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      align-items: center;
+      transition: 0.2s;
+      position: relative;
+    }
+
+    header nav ul li::after {
+      position: absolute;
+      content: '';
+      background-color: rgba(0, 0, 0, 0.986);
+      top: -5%;
+      left: 0%;
+      height: 0%;
+      z-index: -1;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      width: 100%;
+      transition: 0.2s;
+    }
+
+    header nav ul li:hover {
+      color: white;
+    }
+
+    header nav ul li:hover::after {
+      height: 200%; 
+    }
+
+    .hero-section {
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      overflow: hidden;
+    }
+
+    .hero-section-info {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-section-img {
+      height: 80%;
+      width: 50%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      background-color: rgb(104, 128, 148);
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    .hero-section-info h2 {
+      font-size: 35px;
+      margin-bottom: 15px;
+      width: 90%;
+    }
+
+    .hero-section-info p {
+      line-height: 20px;
+      font-size: 16px;
+      margin-bottom: 25px;
+      width: 70%;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 15px;
+      border: 1px solid;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .btn-primary {
+      color: rgb(255, 255, 255);
+      background-color: rgb(12, 85, 109);
+      box-shadow: 0 0 5px black;
+      transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+      color: rgb(12, 85, 109);
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0 0 15px black;
+    }
+
+    .hero-section-img img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      background-position: center;
+    }
+
+    .hero-section-img a {
+      position: absolute;
+      bottom: 25%;
+    }
+ 
+    .hero-section-img a:hover {
+      box-shadow: 0 -10px 105px 10px gray;
+    } 
+
+    .top-gradient {
+      height: 500px;
+      width: 600px;
+      border-bottom-right-radius: 100%;
+      background-color: rgba(80, 115, 161, 0.425);
+      position: absolute;
+      top: 0px;
+      left: -50px;
+      z-index: -100;
+    }
+
+  .bar {
+    height: 20px;
+    display: none;
+    position: absolute;
+    top: 8px;
+    right: 5%;
+    height: 30px;
+    z-index: 999;   
+    cursor: pointer; 
+  }    
+
+    @media screen and (max-width:1100px) {
+      .top-gradient {
+        left: -100px;
+      }
+
+      .hero-section-img{
+        height: 60%;
+      }
+
+      .hero-section-info {
+        align-items: start;
+      }
+
+      .hero-section-info h2 {
+        line-height: 35px;
+        width: 100%; 
+        text-align: start;
+      }
+
+      .hero-section-info p {
+        text-align: start;
+        color: rgb(46, 45, 45);
+      }
+
+      .hero-section-info a {
+        width: 100%;
+      }
+
+      .hero-section-img a {
+        bottom: 10%;
+      }
+    }
+
+
+    @media screen and (max-width: 999px) {
+      .top-gradient {
+        left: -150px;
+      }
+
+      .hero-section-img {
+        height: 50%;
+      }
+
+      .hero-section-info h2 {
+        font-size: 30px; 
+        width: 100%;
+      }
+
+      .hero-section-info p {
+        width: 99%;
+      }
+
+      header nav ul {
+        gap: 12px;
+      }
+      
+    }
+
+    @media screen and (max-width:855px) {
+      .top-gradient {
+        left: -200px;
+      }
+    }
+
+    @media screen and (max-width:815px) {
+      .h-s-i-br {
+        display: none; 
+      }
+
+      header nav ul {
+        display: none;
+      }
+
+      .bar {
+        display: block;
+      }
+
+      .hero-section-info h2 {
+        font-size: 28px;
+        width: 100%;
+        line-height: 28px;
+      }
+
+     
+    }
+
+    @media screen and (max-width:732px) {
+      .hero-section-info h2 {
+        font-size: 25px;
+        margin-bottom: 5px;
+      }
+
+      .hero-section-info p {
+        font-size: 14px;
+        line-height: 18px;
+      }
+
+      .hero-section-img {
+        height: 40%;
+      }
+    }
+
+    @media screen and (max-width:664px) {
+
+      .location-flex {
+        flex-direction: column; 
+        width: 500px;
+       }
+
+      .vid-box {
+        min-width: 100%;
+        max-width: 100%;
+      }
+
+      .location {
+        min-width: 100%;
+        max-width: 100%; 
+      }
+
+      .container {
+        background: linear-gradient(to bottom, rgb(49, 75, 83), rgb(42, 90, 94));
+        color: white;
+      }
+
+      .hero-section-info p {
+        color: rgb(209, 201, 201); 
+      }
+
+
+      header nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+      background-color: rgb(68, 153, 132);
+      height: 50px;
+      padding-left: 10px;
+      z-index: 999;
+    }
+
+    .bar {
+      position: fixed;
+      z-index: 999;
+    }
+
+    .container {
+      padding: 0px 5px;
+    }
+
+      .hero-section {
+        margin-top: 100px; 
+        flex-direction: column;
+      }
+
+      .hero-section-info {
+        width: 100%;
+      }
+
+      .hero-section-img {
+        width: 95%;
+      }
+
+      .top-gradient {
+     display: none;  
+        
+      }
+
+      .hero-section-img{
+        height: 100%;
+      }
+
+      .hero-section-img img {
+        height: 100%;
+      }
+
+      .hero-section-img a {
+        display: none;
+      }
+    }
+
+
+
+    main{
+      margin-top: 200px;
+    }
+
+
+    .title-section {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      width: 90%;
+      margin: 0 auto;
+      gap: 20px; 
+    }
+
+    .card {
+      border: 1px solid;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: rgb(51, 34, 34);
+      color: white;
+    }
+
+    .card .img-box {
+      height: 200px;
+      width: 100%;
+      overflow: hidden;
+      background-color: lightgray;
+    }
+
+    .card img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      background-size: 100%;
+      background-position: center;
+    }
+
+    .title-card {
+      font-size: 18px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .card-information {
+      padding: 5px;
+    }
+
+    .info-card {
+      font-size: 15px;
+      line-height: 15px;
+      color: rgb(255, 255, 255);
+      margin-top: 15px;
+
+    }
+
+    .card-information ul {
+      display: flex;
+      list-style: none;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    .card-information ul li a {
+      font-size: 13px;
+      padding: 8px 16px;
+      width: 100px;
+    }
+
+    @media screen and (max-width:1120px) {
+      .about-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    @media screen and (max-width:970px) {
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media screen and (max-width:715px) {
+      .container {
+        padding: 0;
+      }
+        .about-grid {
+          grid-template-columns: 1fr; 
+        }
+
+        .info-card {
+          max-width: 300px; 
+        }
+
+        .info-card {
+          color: lightgray;
+        }
+
+        svg {
+          fill: white;
+        }
+    }
+
+
+    .location-section {
+      margin-top: 200px;
+      margin-bottom: 150px;
+    }
+
+    .location-flex {
+      display: kk;OOyyiflex;
+      gadsmyfp: 0px;
+      width: 95%;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+
+    .vid-box {
+      height: 500px;
+      width: 50%;
+      overflow: hidden;
+      background-color: rgb(0, 0, 0);
+      border-radius: 10px;
+      border: 1px solid lime;
+    }
+
+    .vid-box video {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .location {
+      height: 500px;
+      border-radius: 10px;
+      border: 1px solid lime;
+      width: 50%;
+      background-color: rgb(0, 0, 0);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+      align-items: center; 
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .location p{
+      color: white; 
+      text-align: center;
+      border-bottom: 2px solid lime; 
+    }
+
+
+    footer {
+      position: absolute;
+      bottom: 0px;
+      background-color: lightblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center; 
+      color: black;
+      font-weight: 600;
+      height: 100px;
+      left: 0;
+      right: 0;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <header>
+      <nav>
+        <div class="top-gradient"></div>
+        <h1>🛰 IkaayCenter</h1>
+        <ul>
+          <li>🏠Home</li>
+          <li>♻About</li>
+          <li>🚩Services</li>
+          <li>🖼Gallery</li>
+          <li>🚍Meat</li>
+        </ul>
+      </nav>
+      <svg class="bar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
+
+      <div class="hero-section">
+        <div class="hero-section-info">
+          <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. <br class="h-s-i-br"> Natus, vero.</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit corrupti praesentium sint magnam minus. Fugit eligendi ratione velit alias laboriosam?</p>
+          <a href="#" class="btn btn-primary">Order</a>
+        </div>
+        
+        <div class="hero-section-img">
+          <img  src="./icons/wbd10.jpeg" alt="">
+          <a href="#" class="btn btn-primary">Contact Us</a>
+
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="about-section">
+        <h2 class="title-section">🚩Our Services</h2>
+        <div class="about-grid">
+
+          <div class="card">
+            <div class="img-box">
+              <img src="icons/wbd6.jpeg" alt="">
+            </div>
+            <div class="card-information">
+              <h3 class="title-card">Lorem ipsum dolor sit amet.</h3>
+              <p class="info-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aspernatur nisi eos accusamus odio similique.</p>
+              <ul>
+                <li><a href="" class="btn btn-primary">view</a></li>
+                <li><a href="" class="btn btn-primary">order</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="img-box">
+              <img src="icons/wbd6.jpeg" alt="">
+            </div>
+            <div class="card-information">
+              <h3 class="title-card">Lorem ipsum dolor sit amet.</h3>
+              <p class="info-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aspernatur nisi eos accusamus odio similique.</p>
+              <ul>
+                <li><a href="" class="btn btn-primary">view</a></li>
+                <li><a href="" class="btn btn-primary">order</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="img-box">
+              <img src="icons/wbd6.jpeg" alt="">
+            </div>
+            <div class="card-information">
+              <h3 class="title-card">Lorem ipsum dolor sit amet.</h3>
+              <p class="info-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aspernatur nisi eos accusamus odio similique.</p>
+              <ul>
+                <li><a href="" class="btn btn-primary">view</a></li>
+                <li><a href="" class="btn btn-primary">order</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="img-box">
+              <img src="icons/wbd6.jpeg" alt="">
+            </div>
+            <div class="card-information">
+              <h3 class="title-card">Lorem ipsum dolor sit amet.</h3>
+              <p class="info-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aspernatur nisi eos accusamus odio similique.</p>
+              <ul>
+                <li><a href="" class="btn btn-primary">view</a></li>
+                <li><a href="" class="btn btn-primary">order</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="img-box">
+              <img src="icons/wbd6.jpeg" alt="">
+            </div>
+            <div class="card-information">
+              <h3 class="title-card">Lorem ipsum dolor sit amet.</h3>
+              <p class="info-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aspernatur nisi eos accusamus odio similique.</p>
+              <ul>
+                <li><a href="" class="btn btn-primary">view</a></li>
+                <li><a href="" class="btn btn-primary">order</a></li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="card">
+            <div class="img-box">
+              <img src="icons/wbd6.jpeg" alt="">
+            </div>
+            <div class="card-information">
+              <h3 class="title-card">Lorem ipsum dolor sit amet.</h3>
+              <p class="info-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aspernatur nisi eos accusamus odio similique.</p>
+              <ul>
+                <li><a href="" class="btn btn-primary">view</a></li>
+                <li><a href="" class="btn btn-primary">order</a></li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="card">
+            <div class="img-box">
+              <img src="icons/wbd6.jpeg" alt="">
+            </div>
+            <div class="card-information">
+              <h3 class="title-card">Lorem ipsum dolor sit amet.</h3>
+              <p class="info-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aspernatur nisi eos accusamus odio similique.</p>
+              <ul>
+                <li><a href="" class="btn btn-primary">view</a></li>
+                <li><a href="" class="btn btn-primary">order</a></li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="card">
+            <div class="img-box">
+              <img src="icons/wbd6.jpeg" alt="">
+            </div>
+            <div class="card-information">
+              <h3 class="title-card">Lorem ipsum dolor sit amet.</h3>
+              <p class="info-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aspernatur nisi eos accusamus odio similique.</p>
+              <ul>
+                <li><a href="" class="btn btn-primary">view</a></li>
+                <li><a href="" class="btn btn-primary">order</a></li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="card">
+            <div class="img-box">
+              <img src="icons/wbd6.jpeg" alt="">
+            </div>
+            <div class="card-information">
+              <h3 class="title-card">Lorem ipsum dolor sit amet.</h3>
+              <p class="info-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aspernatur nisi eos accusamus odio similique.</p>
+              <ul>
+                <li><a href="" class="btn btn-primary">view</a></li>
+                <li><a href="" class="btn btn-primary">order</a></li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="card">
+            <div class="img-box">
+              <img src="icons/wbd6.jpeg" alt="">
+            </div>
+            <div class="card-information">
+              <h3 class="title-card">Lorem ipsum dolor sit amet.</h3>
+              <p class="info-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aspernatur nisi eos accusamus odio similique.</p>
+              <ul>
+                <li><a href="" class="btn btn-primary">view</a></li>
+                <li><a href="" class="btn btn-primary">order</a></li>
+              </ul>
+            </div>
+          </div>
+
+
+
+          <div class="card">
+            <div class="img-box">
+              <img src="icons/wbd6.jpeg" alt="">
+            </div>
+            <div class="card-information">
+              <h3 class="title-card">Lorem ipsum dolor sit amet.</h3>
+              <p class="info-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aspernatur nisi eos accusamus odio similique.</p>
+              <ul>
+                <li><a href="" class="btn btn-primary">view</a></li>
+                <li><a href="" class="btn btn-primary">order</a></li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="card">
+            <div class="img-box">
+              <img src="icons/wbd6.jpeg" alt="">
+            </div>
+            <div class="card-information">
+              <h3 class="title-card">Lorem ipsum dolor sit amet.</h3>
+              <p class="info-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aspernatur nisi eos accusamus odio similique.</p>
+              <ul>
+                <li><a href="" class="btn btn-primary">view</a></li>
+                <li><a href="" class="btn btn-primary">order</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+
+      <section class="location-section">
+       <h2 class="title-section">Location</h2>
+       <div class="location-flex">
+        <div class="vid-box">
+          <video src="icons/glob.mp4" loop autoplay muted plats-inline></video>
+        </div>
+        <div class="location">
+          <p>🌐Somalia</p>
+          <p>Mogadisho</p>
+          <p>Howlwadaag</p>
+          <p>Banaadir</p> 
+          <h3>Ikaay Center Company</h3> 
+        </div>
+       </div>
+      </section>
+    </main>
+
+
+    <footer>
+     &copy; all right reserved 2025 <br>
+     made with ❤ by Ahmed_Osman
+    </footer>
+
+
+     
+  </div>
+
+</body>
+</html>
